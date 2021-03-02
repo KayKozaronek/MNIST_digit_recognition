@@ -19,6 +19,7 @@ def augment_feature_vector(X):
     column_of_ones = np.zeros([len(X), 1]) + 1
     return np.hstack((column_of_ones, X))
 
+
 def compute_probabilities(X, theta, temp_parameter):
     """
     Computes, for each datapoint X[i], the probability that X[i] is labeled as j
@@ -43,6 +44,7 @@ def compute_probabilities(X, theta, temp_parameter):
     # Divide H by the normalizing term
     H = H / np.sum(H, axis = 0)
     return H
+
 
 def compute_cost_function(X, Y, theta, lambda_factor, temp_parameter):
     """
@@ -84,6 +86,7 @@ def compute_cost_function(X, Y, theta, lambda_factor, temp_parameter):
     c = loss + reg
     return c 
 
+
 def run_gradient_descent_iteration(X, Y, theta, alpha, lambda_factor, temp_parameter):
     """
     Runs one step of batch gradient descent
@@ -101,8 +104,32 @@ def run_gradient_descent_iteration(X, Y, theta, alpha, lambda_factor, temp_param
     Returns:
         theta - (k, d) NumPy array that is the final value of parameters theta
     """
-    #YOUR CODE HERE
-    raise NotImplementedError
+    # Number of examples
+    n = X.shape[0]
+
+    # Number of labels    
+    k = theta.shape[0]
+
+    # Map where Y matches j [[y(i) == j]]
+    M = sparse.coo_matrix(([1]*n, (Y, range(n))), shape=(k,n)).toarray()
+    
+    # Probabilities
+    probs = compute_probabilities(X, theta, temp_parameter)
+
+    # Loss Term
+    loss_term = - 1/(temp_parameter * n) * np.dot((M - probs), X)
+
+    # Regularization Term
+    reg_term = lambda_factor* theta
+    
+    # Gradient 
+    gradient = loss_term + reg_term
+
+    # Update theta
+    theta = theta - alpha * gradient
+
+    return theta
+
 
 def update_y(train_y, test_y):
     """
