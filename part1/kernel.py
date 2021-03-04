@@ -1,8 +1,5 @@
 import numpy as np
 
-### Functions for you to fill in ###
-
-
 
 def polynomial_kernel(X, Y, c, p):
     """
@@ -19,7 +16,6 @@ def polynomial_kernel(X, Y, c, p):
         Returns:
             kernel_matrix - (n, m) Numpy array containing the kernel matrix
     """
-    # YOUR CODE HERE
     kernel_matrix = (np.dot(X,Y.T) + c)**p
 
     return kernel_matrix

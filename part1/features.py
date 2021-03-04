@@ -7,22 +7,17 @@ def project_onto_PC(X, pcs, n_components, feature_means):
     Given principal component vectors pcs = principal_components(X)
     this function returns a new data array in which each sample in X
     has been projected onto the first n_components principcal components.
-    """
-    #       on the first n_components principal components.
-    #       This should be an array with dimensions: n x n_components.
-    # Hint: these principal components = first n_components columns
-    #       of the eigenvectors returned by principal_components().
-    #       Note that each eigenvector is already be a unit-vector,
-    #       so the projection may be done using matrix multiplication.
-    
+    These principal components = first n_components columns
+    of the eigenvectors returned by principal_components().
+    Note that each eigenvector is already be a unit-vector,
+    so the projection may be done using matrix multiplication.
+    """    
     # Center data using the feature means
     X_tilde = X - feature_means
     
     # Return the projection of the centered dataset
     return np.matmul(X_tilde, pcs[:,:n_components]) 
 
-
-### Functions which are already complete, for you to use ###
 
 def cubic_features(X):
     """
@@ -126,7 +121,6 @@ def principal_components(centered_data):
     return eigen_vectors
 
 
-###Correction note:  Differing from the release, this function takes an extra input feature_means.
 
 def plot_PC(X, pcs, labels, feature_means):
     """
@@ -147,7 +141,6 @@ def plot_PC(X, pcs, labels, feature_means):
     plt.show()
 
 
-###Correction note:  Differing from the release, this function takes an extra input feature_means.
 
 def reconstruct_PC(x_pca, pcs, n_components, X, feature_means):
     """
