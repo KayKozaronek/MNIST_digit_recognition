@@ -180,7 +180,7 @@ test_pca = project_onto_PC(test_x, pcs, n_components, feature_means)
 # and evaluate its accuracy on (test_pca, test_y).
 theta_pca, cost_function_history = softmax_regression(train_pca, train_y, temp_parameter = 1, alpha=0.3, lambda_factor=1.0e-4, k=10, num_iterations=150)
 
-print(f"Test error PCA: {compute_test_error(test_pca, test_y, theta_pca, temp_parameter = 1)}")
+print(f"Test error PCA 18 Components: {compute_test_error(test_pca, test_y, theta_pca, temp_parameter = 1)}")
 
 
 # Use the plot_PC function in features.py to produce scatterplot
@@ -223,4 +223,4 @@ test_cube = cubic_features(test_pca10)
 # and evaluate its accuracy on (test_cube, test_y).
 theta_pca10, cost_function_history = softmax_regression(train_cube, train_y, temp_parameter = 1, alpha=0.3, lambda_factor=1.0e-4, k=10, num_iterations=150)
 
-print(f"Test error PCA: {compute_test_error(test_cube, test_y, theta_pca10, temp_parameter = 1)}")
+print(f"Test error PCA 10 Components: {compute_test_error(test_cube, test_y, theta_pca10, temp_parameter = 1)}")
