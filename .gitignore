@@ -3,3 +3,6 @@ part2-mnist/*
 part2-nn/*
 part2-twodigit/*
 !Datasets/.gitkeep
+
+.DS_Store
+._.DS_Store
