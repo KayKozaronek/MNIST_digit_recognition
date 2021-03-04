@@ -5,7 +5,7 @@ The project is ongoing and an analysis containing Neural Networks will be added.
 
 ## What does it do?
 This project analyzes the classic MNIST dataset containing 64*64 grayscale images of numbers.
-It's aim is to  
+By implementing Linear Regression, SVM, Multinomial Softmax Regression, PCA, Gaussian RBF Kernel 
 
 ## What is it? 
 This project includes working implementations of the following algorithms from scratch:
