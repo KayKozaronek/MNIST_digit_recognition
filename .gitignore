@@ -1,5 +1,4 @@
 Datasets/*
-part2-twodigit/*
 !Datasets/.gitkeep
 
 .DS_Store
