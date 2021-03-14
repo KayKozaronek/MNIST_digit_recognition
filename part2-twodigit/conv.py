@@ -19,7 +19,7 @@ class CNN(nn.Module):
 
     def __init__(self, input_dimension):
         super(CNN, self).__init__()
-        # TODO initialize model layers here
+        # TODO initialize model layers here !
 
     def forward(self, x):
 
